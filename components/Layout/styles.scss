@@ -1,4 +1,12 @@
 @import './normalize', './fonts';
+@import '../../styles/mixins';
+
+* {
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -ms-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
 
 body {
   font-family: 'Axiforma', sans-serif;
@@ -30,9 +38,24 @@ ul {
   padding: 0;
 }
 
+input, select {
+  outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .container {
   width: 1300px;
   margin: 0 auto;
+  padding: 0 20px;
+
+  @include for-big-desktop-up {
+    padding: 0;
+  }
 }
 
 h1, h2, h3 {

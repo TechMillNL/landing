@@ -9,7 +9,11 @@ interface LinkProps {
 
 const Link: React.FunctionComponent<LinkProps> = ({ link, title }) => {
   const strollTo = (location: string) => (): void => {
-    scrollToElement(location);
+    scrollToElement(location, {
+      offset: 0,
+      ease: 'inOutQuint',
+	    duration: 1500,
+    })
   }
 
   return (
@@ -24,7 +28,7 @@ const Header: React.FunctionComponent = () => (
     <nav className="header__wrapper container">
       <ul className="header__list">
         <li className="header__item">
-          <Link link="#customer" title="Customers" />
+          <Link link="#customers" title="Customers" />
         </li>
 
         <li className="header__item">
@@ -55,4 +59,4 @@ const Header: React.FunctionComponent = () => (
   </header>
 )
 
-export default Header
+export default React.memo(Header)
